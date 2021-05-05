@@ -28,12 +28,12 @@ print(dataset.sort_values(by=['order_amount', 'total_items']))
 4882      4883       42      607        704000         2000    credit_card 2017-03-25 04:00:00.000
 ```
 
- > I would divide the `order_amount` by `total_items` which is equal to price per a pair of shoes in the order, then take the average of this per shoe price for each order. Note that each order can only have 1 type of shoes, and there is usually no need for one customer to order the exact same shoes in more than 1 quantity. It is reasonable to assume that any customer ordering more than 1 unit is ordering for multiple people or for retail purposes, so the true average order value per final customer would be better reflected with above metric. 
+ > I would divide the `order_amount` by `total_items` which is equal to price per a pair of shoes in the order, then take the average of this per shoe price for each order. Note that each order can only have 1 type of shoes, and there is usually no need for one customer to order the exact same shoes in more than 1 quantity. It is reasonable to assume that any customer ordering more than 1 unit is ordering for multiple people or for retail purposes, so the `true average order value per final customer` would be better reflected with above metric. 
 
 
 ### b) What metric would you report for this dataset?
 
-> I would report average of `order_amount/total_items = price of 1 pair of shoes in the order`. As mentioned above, this metric better reflects average order value per customer. 
+> I would report average of `order_amount/total_items = price of 1 pair of shoes in the order`. As mentioned above, this metric better reflects average order value per final customer. 
 
 
 ### c) What is its value? 
@@ -62,7 +62,7 @@ print(np.mean(dataset['item_val']))
 
 387.7428
 ```
-> A better way to evaluate AOV is to find the average of 1 shoe value per order. The value of this metrics is: 387.7428
+> A better way to evaluate AOV is to find the average of the price of 1 pair of shoes per order which reflects the average order value per final customer. The value of this metrics is: 387.7428
 
 
 ## Question 2
@@ -111,4 +111,4 @@ FROM   (SELECT productname,
         GROUP  BY productname) 
 ```
 
-> Customers in Germany ordered Boston Crab Meat the most, withe total quantity ordered of 160 units.
+> Customers in Germany ordered Boston Crab Meat the most, with total quantity ordered of 160 units.
